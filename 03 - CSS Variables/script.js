@@ -8,10 +8,7 @@ const base = document.getElementById('base');
 base.addEventListener('change', changeBorder)
 
 
-
 function changeBorder() {
-    
-
     const imagen = document.querySelector('img');
     imagen.style.border = `solid ${rangeBorder.value}px ${base.value}`;
 }
@@ -21,3 +18,5 @@ function changeBlur() {
     imagen.style.filter = `blur(${rangeBlur.value}px)`
 }
 
+changeBorder();
+changeBlur();
