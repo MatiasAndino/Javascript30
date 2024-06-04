@@ -61,6 +61,48 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    // NUMERO 1
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 1 +++&&&%%%+++');
+    const numero1 = inventors.filter(obj => obj.year >= 1500 && obj.year < 1600);
+    console.table(numero1);
+
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 2 +++&&&%%%+++');
+    const numero2 = inventors.map(obj => `${obj.first}, ${obj.last}`);
+    console.log(numero2);
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 3 +++&&&%%%+++');
+    const numero3 = inventors.sort((a,b) => a.year > b.year);
+    console.table(numero3);
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 4 +++&&&%%%+++');
+    const numero4 = inventors.reduce((suma, obj) => suma + (obj.passed - obj.year) ,0);
+    console.log('años en total:',numero4);
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 5 +++&&&%%%+++');
+    const numero5 = inventors.sort((a,b) => (a.passed - a.year) < (b.passed - b.year));
+    console.table(numero5);
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 6 +++&&&%%%+++');
+    //si nombre.includes('de')
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 7 +++&&&%%%+++');
+    const numero7 = people.sort();
+    console.log(numero7);
+    
+    console.log('+++&&&%%%+++ EJERCICIO NUMERO 8 +++&&&%%%+++');
+    const numero8 = data.reduce((obj, d) => {
+
+      if (obj[d] !== undefined) {
+        obj[d] += 1;
+      } else {
+        obj[d] = 1;
+      }
+      
+      return obj;
+    }, {})
+    
+    console.log(numero8)
+
   </script>
 </body>
 </html>
