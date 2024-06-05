@@ -92,11 +92,8 @@
     console.log('+++&&&%%%+++ EJERCICIO NUMERO 8 +++&&&%%%+++');
     const numero8 = data.reduce((obj, d) => {
 
-      if (obj[d] !== undefined) {
-        obj[d] += 1;
-      } else {
-        obj[d] = 1;
-      }
+      if (!!obj[d]) obj[d] += 1;
+      else obj[d] = 1;
       
       return obj;
     }, {})
