@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Type Ahead 👀</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
 
   <form class="search-form">
@@ -15,9 +17,43 @@
       <li>or a state</li>
     </ul>
   </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  <script>
 
-</script>
+    const cities = [];
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    fetch(endpoint)
+      .then(blob => blob.json())
+      .then(data => cities.push(...data));
+
+
+    const suggestions = document.querySelector('.suggestions');
+    const search = document.querySelector('.search');
+    search.addEventListener('change', buscar);
+    search.addEventListener('keyup', buscar);
+
+    function buscar() {
+      const string = search.value.toLowerCase();
+      const result = cities.filter(c => c.city.toLowerCase().includes(string) || c.state.toLowerCase().includes(string));
+
+      const finalString = result.map(e => {
+        return `
+          <li>
+            <span class="name"> ${e.city}, ${e.state} </span>
+            <span class="population"> ${e.population} </span>
+          </li>
+          `;
+      }).join('');
+
+      suggestions.innerHTML = finalString;
+
+    }
+
+
+
+    // console.log(search('ew'))
+
+  </script>
 </body>
+
 </html>
