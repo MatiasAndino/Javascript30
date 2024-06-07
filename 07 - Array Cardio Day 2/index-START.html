@@ -37,6 +37,21 @@
     // Find the comment with this ID
     // delete the comment with the ID of 823423
 
-  </script>
+    console.log('***------->>> EJERCICIO NUMERO 1   <<<-------***');
+    const atLastOne = people.some(e => new Date().getFullYear() - e.year >= 19);
+    console.log(atLastOne);
+    const everyone = people.every(e => new Date().getFullYear() - e.year >= 19);
+    console.log(everyone); 
+
+    console.log('***------->>> EJERCICIO NUMERO 2   <<<-------***');
+    const find_ = comments.find(e => e.id === 823423);
+    console.log(find_);
+    
+    console.log('***------->>> EJERCICIO NUMERO 3   <<<-------***');
+    const findIndex_ = comments.findIndex(e => e.id === 823423);
+    console.log(findIndex_);
+
+
+    </script>
 </body>
 </html>
